@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Tobielearn Home Page 
+{% endblock%}
+
+{% block content %}
+<!-- link to home.css -->
+<link rel="stylesheet" href="{% static 'home.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- link to nav-2-container.css-->
+<link rel="stylesheet" href="{% static 'home_animation.css'%}"> 
+<!-- link to nav-3-container.css-->
+ <link rel="stylesheet" href="{% static 'nav_3_container.css'%}"> 
+
+<!-- Bootstrap JS and dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<!-- my own js file -->
+<script src="{% static 'script.js' %}"></script>
+
+<!-- import css file -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+
+<header> 
+    <div class="navbar" >
+        <!-- Logo Section -->
+            <div class="logo">
+                <a href="/"><img src="../static/images/logo-png-2-2.png" alt="Logo"></a> 
+            </div> 
+        <!-- Address Section -->
+            <div class="address" onclick="toggleAddressPopup()" style="cursor:pointer;"> 
+                <span>Deliever to {{ username }}</span> 
+                <strong> {{ address }} </strong> 
+            </div> 
+        <!-- address pop-->
+        <div id="addressPopup" class="addresspopup" style="display:none;">
+        <!-- Visulize content-->
+            <form id="addressForm" method="POST"> 
+               {% csrf_token %}
+            <div class="popup-content"> 
+                <span class="close-btn" onclick="toggleAddressPopup()" aria-label="Close popup">&#x2715;</span>
+                <label for="select address ">Select or Enter Address</label> 
+            <div class="form-group"> 
+                <input type="text" id="address1" class="form-control" placeholder="Street Adress 1" required > 
+                <input type="text" id="address2" class="form-control" placeholder="Street Adress 2 (optional)"> 
+                <label for="state">State </label> 
+                <select class="state_control" name="state" id="state">
+                    <option value=''>Select State</option> 
+                    <option value="AL"> AL </option>  
+                    <option value="AK"> AK </option> 
+                    <option value="AZ "> AZ </option> 
+                    <option value="AR "> AR </option> 
+                    <option value="AS "> AS </option> 
+                    <option value="CA"> CA </option> 
+                    <option value="CO"> CO </option> 
+                    <option value="CT"> CT </option> 
+                    <option value="DE"> DE </option> 
+                    <option value="DC"> DC </option> 
+                    <option value="FL"> FL </option> 
+                    <option value="GA"> GA </option> 
+                    <option value="GU"> GU </option> 
+                    <option value="HI"> HI </option> 
+                    <option value="ID"> ID </option> 
+                    <option value="IL"> IL </option> 
+                    <option value="IN"> IN </option> 
+                    <option value="IA"> IA </option> 
+                    <option value="KS"> KS </option> 
+                    <option value="KY"> KY </option> 
+                    <option value="LA"> LA </option> 
+                    <option value="ME"> ME </option> 
+                    <option value="MA"> MA </option> 
+                    <option value="MD"> MD </option> 
+                    <option value="MI"> MI </option> 
+                    <option value="AL"> AL </option> 
+                    <option value="MN"> MN  </option> 
+                    <option value="MS"> MS  </option> 
+                    <option value="MO"> MO  </option> 
+                    <option value="MT"> MT  </option> 
+                    <option value="NE"> NE </option> 
+                    <option value="NV"> NV </option> 
+                    <option value="NH"> NH  </option> 
+                    <option value="NJ"> NJ </option> 
+                    <option value="NM"> NM  </option> 
+                    <option value="NY"> NY  </option> 
+                    <option value="NC"> NC  </option> 
+                    <option value="ND"> ND  </option>
+                    <option value="MP"> MP  </option>
+                    <option value="OH"> OH  </option>
+                    <option value="OK"> OK  </option>
+                    <option value="OR"> OR  </option>
+                    <option value="PA"> PA  </option>
+                    <option value="PR"> PR  </option>
+                    <option value="RI"> RI  </option>
+                    <option value="SC"> SC </option>
+                    <option value="SD"> SD </option>
+                    <option value="TN"> TN  </option>
+                    <option value="TX"> TX  </option>
+                    <option value="TT"> TT  </option>
+                    <option value="UT"> UT  </option>
+                    <option value="VT"> VT  </option>
+                    <option value="VA"> VA  </option>
+                    <option value="VI"> VI  </option>
+                    <option value="WA"> WA  </option>
+                    <option value="WV"> WV  </option>
+                    <option value="WI"> WI </option>
+                    <option value="WY"> WY  </option> 
+                </select> 
+                <p> 
+                <label for='postal'> Postal code :</label> 
+                    <input class="state_control" type="text" id='postal' name="postal" placeholder="Postal Code"> 
+                </p> 
+            </div>        
+            <button type="submit" id="saveButton" class="btn-save"  onclick="saveAddress()"> Save Address </button>   
+        </form> 
+    </div> 
+    </div> 
+ 
+        <!-- Search Bar -->
+         <div class="search-bar"> 
+            <select name="all" id='all' class="all-button"> 
+                <option value="All">All</option> 
+                <option value="Furniture">Furniture</option> 
+                <option value="Clothing">Clothing</option> 
+                <option value="Car">Car</option> 
+                <option value="Books">Books</option> 
+                <option value="Toys">Toys</option> 
+            </select> 
+            <input type="text" placeholder="Search Tobiesell"> 
+            <button type="submit" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-search"></span>
+            </button> 
+         </div> 
+        <button onclick="location.href='{% url 'register' %}'"> Sign up </button> 
+        <button onlcick="location.href='{% url 'login' %}'"> Login </button>
+
+        <!-- Language Selector -->
+        <div class="language-container">
+                <select name="language" id="language">
+                    <option value="en"><img src={% static "images/hk.png" %} alt="Cantonese"> Cantonese </option>
+                    <option value="en">  English </option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                </select>
+        </div>
+    </div> 
+</div>  
+
+<div class="nav_2_container">
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+        <div id='title'>
+        <div class="text-content-justify">
+            <ul>
+            <li>
+                <input type="checkbox" /> 
+                <div class="text-change">T</div> 
+            </li> 
+            <li>
+            <input type="checkbox" /> 
+            <div class="text-change">O</div>
+            </li>
+            <li>
+            <input type="checkbox" />  
+            <div class="text-change">B</div> 
+            </li>
+            <li>
+            <input type="checkbox" /> 
+            <div class="text-change">I</div> 
+            </li>
+            <li>
+            <input type="checkbox" /> 
+            <div class="text-change">E</div>
+            </li>
+            <li> 
+            <input type="checkbox" /> 
+            <div class="text-change">L</div> 
+            </li>
+            <li>
+            <input type="checkbox" /> 
+            <div class="text-change">E</div>
+            </li>
+            <li>
+            <input type="checkbox" />  
+            <div class="text-change">A</div> 
+            </li>
+            <li>
+            <input type="checkbox" /> 
+            <div class="text-change">R</div> 
+            </li>
+            <li> 
+                <input type="checkbox"/> 
+                <div class="text-change">N</div>
+            </li> 
+            <br>
+        </ul>  
+    </div> 
+    <div> 
+        <span >
+          Make a greater learning experience
+        </span>
+    </div> 
+</div> 
+</div> 
+<div class="nav_3_container">
+<div class="browsing-container">
+    <main>
+        <header class="browsing-header"> 
+            <h2 class="h2-effect subheader">
+                Tobielearn
+            </h2> 
+            <h1 class="h1-effect">
+                We aim to provide the best experiecne <em>to our user.</em> 
+            </h1> 
+            <p class="word-effect">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum suscipit ipsam aspernatur quasi reiciendis at eum cupiditate officiis repudiandae quae ea facere odit beatae voluptate recusandae quas, possimus laborum
+            inventore.</p>
+            </header>
+
+            <img src="https://images.unsplash.com/photo-1558459654-c430be5b0a44?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=960&h=500" alt=""/>
+
+            <section>
+      <h2 class="h2-effect">The Client</h2>
+      <p class="word-effect">You! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam voluptatum quidem eligendi debitis quia dignissimos ipsa error, atque quibusdam corrupti soluta facere nulla neque nostrum recusandae assumenda, aspernatur in. Provident!</p>
+    </section>
+
+    <section>
+
+      <h2 class="h2-effect">Our Mission</h2>
+      <p class="word-effect">To educate the world in web animation. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ipsa doloremque, natus dolorum a perferendis modi veritatis ab earum, culpa nemo, aliquam qui! Nostrum iste ullam voluptatem, doloribus odit autem.</p>
+    </section>
+    <div class="callout">
+        <h3 class="h3-effect">Get animating!</h3>
+      <p class="h2-effect">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur magni dolores iusto nulla vitae, reiciendis amet veritatis aliquam iste temporibus itaque aliquid, eveniet saepe reprehenderit distinctio eaque libero, culpa tenetur.</p>
+
+    </div>
+    <img src='https://images.unsplash.com/photo-1603791445824-0050bd436b6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=960' alt=''>
+  </main>
+</div>
+</div> 
+
+</div> 
+
+
+
+</header> 
+
+{% endblock%}

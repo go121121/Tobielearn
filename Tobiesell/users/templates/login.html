@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static  %}
+{% block title %}
+   Tobiesell login page 
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+<body>
+    <h1> Tobielearn</h1> 
+       <div class="container"> 
+        <div> 
+
+              <p class="design"> Start your journey</p> 
+              <h2> Sign in to Tobielearn </h2> 
+               <form  method="POST"> 
+                 {% csrf_token %}
+                <div class="username_design"> 
+                    <label for="username"> 
+                    <div> Username:</div> 
+                    </label> 
+            <input type="username" id="username" name="username" placeholder="username or email"> 
+                </div> 
+
+                <div class="password_design"> 
+
+                    <label for="password"> 
+                        <div>  Password:  </div> 
+                  </label> 
+
+            <input type="password" id="password" name="password" placeholder="password">
+                </div> 
+    
+
+            <div> 
+                <button type="submit" onclick="solve">
+                    log in 
+                </button>
+            </div> 
+
+
+            <div> 
+                <hr class="hr-text before after " data-content=" Or sign in with " />
+            </div> 
+
+            <div> 
+                <button type="button" class="login-with-google-btn" >
+                       Google 
+                </button>
+                <button type="button" class="login-with-facebook-btn" >
+                       Facebook
+                </button>
+
+            </div> 
+        </div> 
+
+    </form> 
+        <p> Forget your password ?
+        <p> Don't have an account ?
+            <p>
+                <a href="{% url "register" %}" style="text-decoration: none; color: blue; padding:3%; cursor:pointer;">Sign up for an account </a>
+            </p>
+
+        </p>
+   </div> 
+
+    </body>
+{% endblock %}

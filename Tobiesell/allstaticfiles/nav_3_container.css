@@ -1,0 +1,201 @@
+.nav_3_container{ 
+    display:flex; 
+}
+.card{ 
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2);
+    max-width: 300px;
+    margin: auto; 
+    text-align:center; 
+    font-family:arial;
+    background:transparent; 
+}
+
+.button-click{ 
+    border:none; 
+    outline: 0; 
+    display:inline-block; 
+    padding:8px; 
+    color:white; 
+    background-color:black; 
+    text-align:center; 
+    cursor:pointer; 
+    width:100%; 
+    font-size: 18px; 
+}
+.button-click:hover,.img-fix:hover{ 
+    opacity:0.7;
+}
+
+.img-fix{ 
+    text-decoration:none; 
+    font-size:22px; 
+    color:black; 
+}
+.tony-title{ 
+  color: grey;
+  font-size: 18px;
+
+}
+/* animation of browsing effect */
+*, 
+*:before, 
+*:after{ 
+    box-sizing:border-box; 
+    position:relative;   
+}
+body{ 
+    background-color:black; 
+    color:#fff; 
+}
+
+
+main {
+  height: 50px;  
+  border: solid 1px #222;
+  padding: 2rem;
+  max-width: 100%;
+  width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  scroll-behavior:smooth;
+
+  > * {
+    grid-column: 1 / -1;
+  }
+}
+
+.word-effect{ 
+    line-height:1.8; 
+    margin:1rem 0; 
+    color:rgb(158,166,184); 
+}
+.h1-effect{ 
+    line-height:1.3; 
+    font-size:5vw;
+    margin:1rem 0; 
+}
+.h2-effect{ 
+    font-size: 4vw;
+  margin: 1rem 0;
+}
+.h3-effect {
+  font-size: 2vw;
+  font-weight: bold;
+}
+.h2-effect.subheader{ 
+    font-size:2vw;
+}
+section{ 
+    grid-column: auto;
+}
+.browsing-header{
+   display: grid;
+  align-content: center;
+  grid-column: 1/-1;
+}
+.callout {
+  text-align: center;
+  background-color: #3173fa;
+  padding: 1vw 3vw;
+}
+.callout > p {
+  color: white;
+}
+.browsing-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  -webkit-animation: cinematic-camera 11s cubic-bezier(0.6, 0, 0.4, 1) both infinite;
+          animation: cinematic-camera 11s cubic-bezier(0.6, 0, 0.4, 1) both infinite;
+}
+@-webkit-keyframes cinematic-camera {
+  from {
+    perspective-origin: 60% 40%;
+  }
+  to {
+    perspective-origin: 40% 60%;
+  }
+  /* 
+    Move the fading to the containing element as to not break inside 3D transforms. 
+    See: https://css-tricks.com/things-watch-working-css-3d/
+  */
+  from, to {
+    opacity: 0;
+  }
+  25%, 75% {
+    opacity: 1;
+  }
+}
+@keyframes cinematic-camera {
+  from {
+    perspective-origin: 60% 40%;
+  }
+  to {
+    perspective-origin: 40% 60%;
+  }
+  /* 
+    Move the fading to the containing element as to not break inside 3D transforms. 
+    See: https://css-tricks.com/things-watch-working-css-3d/
+  */
+  from, to {
+    opacity: 0;
+  }
+  25%, 75% {
+    opacity: 1;
+  }
+}
+.browsing-container:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+main {
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  -webkit-animation: inherit;
+          animation: inherit;
+  -webkit-animation-name: cinematic;
+          animation-name: cinematic;
+}
+main > img {
+  display: block;
+  transform-style: preserve-3d;
+  -webkit-animation: inherit;
+          animation: inherit;
+  -webkit-animation-name: image-pop;
+          animation-name: image-pop;
+}
+@-webkit-keyframes image-pop {
+  70%, 100% {
+    transform: translate3d(0, 0, 60px);
+  }
+}
+@keyframes image-pop {
+  70%, 100% {
+    transform: translate3d(0, 0, 60px);
+  }
+}
+main > img:last-of-type {
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+}
+@-webkit-keyframes cinematic {
+  from {
+    transform: translateZ(-200px) rotateY(30deg) translateY(50vh);
+  }
+  to {
+    transform: translateZ(-100px) rotateY(-30deg) translateY(-100%) translateY(0vh);
+  }
+}
+@keyframes cinematic {
+  from {
+    transform: translateZ(-200px) rotateY(30deg) translateY(20vh);
+  }
+  to {
+    transform: translateZ(-100px) rotateY(-30deg) translateY(-50%) translateY(0);
+  }
+}

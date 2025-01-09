@@ -1,0 +1,180 @@
+
+h1{ 
+    color:blue;  
+    font-size: 30px;
+    position:absolute; 
+    top:25px; 
+    left:30px; 
+    
+}
+
+html{ 
+    background-image:url("../static/images/colorful.jpg");
+    height:100%; 
+    background-repeat:no-repeat; 
+    background-position: right center; 
+    background-size:550px 840px; 
+
+}
+
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align:left;
+  padding-right:40px; 
+  height: 1.5em;
+  opacity: 0.5;
+}
+.before {
+    content: '';
+    background: linear-gradient(to right, transparent, #818078, transparent);
+    position: relative;
+    left: 0;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+  }
+.after {
+    content: attr(data-content);
+    position: absolute; 
+    display: inline-block;
+    color: black;
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    color: #818078;
+    background-color: #fcfcfa;
+} 
+
+
+
+.border{ 
+    border: 0.5px solid grey;
+    border-radius:2px; 
+    width:350px;
+    height:320px;
+    padding-left:95px ;
+}
+
+.password_design{ 
+    margin-top:10px; 
+}
+.username_design{ 
+    margin-top:50px ;
+}
+
+.login-with-facebook-btn {
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  padding: 12px 18px 12px 42px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+
+  color: #757575;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+  background-image: url("../static/images/th.jpg"); 
+  background-size:19px 19px; 
+  background-repeat: no-repeat;
+  background-color:white; 
+  background-position: 12px 11px;
+
+  &:hover {
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &:active {
+    background-color: #eeeeee;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
+      0 0 0 3px #c8dafc;
+  }
+
+} 
+
+
+
+
+.login-with-google-btn {
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  padding: 12px 18px 12px 42px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+
+  color: #757575;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 12px 11px;
+
+  &:hover {
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &:active {
+    background-color: #eeeeee;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
+      0 0 0 3px #c8dafc;
+  }
+
+} 
+
+
+
+input[type=username],select{
+    width:250px; 
+    padding:12px 20px; 
+    margin:8px 0; 
+    border-radius: 2px; 
+
+}
+
+button[type=submit],select{ 
+    width:280px; 
+    padding:12px 20px; 
+    margin:8px 0; 
+    border-radius: 2px; 
+    background-color: #ADD8E6;
+    color:white; 
+
+}
+
+input[type=password],select{
+    width:250px; 
+    padding:12px 20px; 
+    margin:8px 0; 
+    border-radius: 2px; 
+
+}
+
+.design { 
+    color:grey; 
+}
+
+
+
+body{ 
+    padding-left:150px;
+    padding-top:180px; 
+   
+}
