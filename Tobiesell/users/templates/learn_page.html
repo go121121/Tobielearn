@@ -1,1 +1,80 @@
-<h1> Testing for learning page</h1> 
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Tobielearn main  Page 
+{% endblock%}
+
+{% block content %}
+<!-- link to learn.css-->
+<link rel="stylesheet" href="{% static 'learn.css'%}"> 
+<!-- my own js file -->
+<script src="{% static 'learn.js' %}"></script> 
+
+<div class="hamburger">
+    <span class="line"></spin> 
+    <span class="line"></spin> 
+    <span class="line"></spin> 
+
+    <div class="mainbar">
+
+
+    </div>
+
+</div>
+<section class="app section-sidebar">
+  <aside class="sidebar">
+    <header>
+      Menu
+    </header>
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a href="#"><i class="ion-bag"></i> <span>Home</span></a>
+        </li>
+        <li>
+          <a href="#"><i class="ion-ios-settings"></i> <span class="">Class</span></a>
+          <ul class="nav-flyout">
+            <li>
+              <a href="#"><i class="ion-ios-alarm-outline"></i>English/other language</a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-ios-camera-outline"></i>Science</a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-ios-chatboxes-outline"></i>Histroy</a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-ios-cog-outline"></i>Math</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><i class="ion-ios-briefcase-outline"></i> <span class="">View</span></a>
+          <ul class="nav-flyout">
+            <li>
+              <a href="#"><i class="ion-ios-flame-outline"></i>Histroy</a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-ios-lightbulb-outline"></i>suscription</a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-ios-location-outline"></i>Like Videos</a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-ios-locked-outline"></i>playlist</a>
+            </li>
+            <li>
+              <a href="#"><i class="ion-ios-navigate-outline"></i>Favouriste video</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><i class="ion-ios-analytics-outline"></i> <span class="">Account</span></a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+</section>
+
+{% endblock%}

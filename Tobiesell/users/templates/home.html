@@ -8,6 +8,8 @@ Tobielearn Home Page
 {% block content %}
 <!-- link to home.css -->
 <link rel="stylesheet" href="{% static 'home.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <!-- link to nav-2-container.css-->
@@ -18,136 +20,38 @@ Tobielearn Home Page
 <!-- Bootstrap JS and dependencies -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 <!-- my own js file -->
-<script src="{% static 'script.js' %}"></script>
+  <script src="{% static 'script.js' %}"></script> 
 
 <!-- import css file -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
-
 <header> 
-    <div class="navbar" >
-        <!-- Logo Section -->
-            <div class="logo">
-                <a href="/"><img src="../static/images/logo-png-2-2.png" alt="Logo"></a> 
-            </div> 
-        <!-- Address Section -->
-            <div class="address" onclick="toggleAddressPopup()" style="cursor:pointer;"> 
-                <span>Deliever to {{ username }}</span> 
-                <strong> {{ address }} </strong> 
-            </div> 
-        <!-- address pop-->
-        <div id="addressPopup" class="addresspopup" style="display:none;">
-        <!-- Visulize content-->
-            <form id="addressForm" method="POST"> 
-               {% csrf_token %}
-            <div class="popup-content"> 
-                <span class="close-btn" onclick="toggleAddressPopup()" aria-label="Close popup">&#x2715;</span>
-                <label for="select address ">Select or Enter Address</label> 
-            <div class="form-group"> 
-                <input type="text" id="address1" class="form-control" placeholder="Street Adress 1" required > 
-                <input type="text" id="address2" class="form-control" placeholder="Street Adress 2 (optional)"> 
-                <label for="state">State </label> 
-                <select class="state_control" name="state" id="state">
-                    <option value=''>Select State</option> 
-                    <option value="AL"> AL </option>  
-                    <option value="AK"> AK </option> 
-                    <option value="AZ "> AZ </option> 
-                    <option value="AR "> AR </option> 
-                    <option value="AS "> AS </option> 
-                    <option value="CA"> CA </option> 
-                    <option value="CO"> CO </option> 
-                    <option value="CT"> CT </option> 
-                    <option value="DE"> DE </option> 
-                    <option value="DC"> DC </option> 
-                    <option value="FL"> FL </option> 
-                    <option value="GA"> GA </option> 
-                    <option value="GU"> GU </option> 
-                    <option value="HI"> HI </option> 
-                    <option value="ID"> ID </option> 
-                    <option value="IL"> IL </option> 
-                    <option value="IN"> IN </option> 
-                    <option value="IA"> IA </option> 
-                    <option value="KS"> KS </option> 
-                    <option value="KY"> KY </option> 
-                    <option value="LA"> LA </option> 
-                    <option value="ME"> ME </option> 
-                    <option value="MA"> MA </option> 
-                    <option value="MD"> MD </option> 
-                    <option value="MI"> MI </option> 
-                    <option value="AL"> AL </option> 
-                    <option value="MN"> MN  </option> 
-                    <option value="MS"> MS  </option> 
-                    <option value="MO"> MO  </option> 
-                    <option value="MT"> MT  </option> 
-                    <option value="NE"> NE </option> 
-                    <option value="NV"> NV </option> 
-                    <option value="NH"> NH  </option> 
-                    <option value="NJ"> NJ </option> 
-                    <option value="NM"> NM  </option> 
-                    <option value="NY"> NY  </option> 
-                    <option value="NC"> NC  </option> 
-                    <option value="ND"> ND  </option>
-                    <option value="MP"> MP  </option>
-                    <option value="OH"> OH  </option>
-                    <option value="OK"> OK  </option>
-                    <option value="OR"> OR  </option>
-                    <option value="PA"> PA  </option>
-                    <option value="PR"> PR  </option>
-                    <option value="RI"> RI  </option>
-                    <option value="SC"> SC </option>
-                    <option value="SD"> SD </option>
-                    <option value="TN"> TN  </option>
-                    <option value="TX"> TX  </option>
-                    <option value="TT"> TT  </option>
-                    <option value="UT"> UT  </option>
-                    <option value="VT"> VT  </option>
-                    <option value="VA"> VA  </option>
-                    <option value="VI"> VI  </option>
-                    <option value="WA"> WA  </option>
-                    <option value="WV"> WV  </option>
-                    <option value="WI"> WI </option>
-                    <option value="WY"> WY  </option> 
-                </select> 
-                <p> 
-                <label for='postal'> Postal code :</label> 
-                    <input class="state_control" type="text" id='postal' name="postal" placeholder="Postal Code"> 
-                </p> 
-            </div>        
-            <button type="submit" id="saveButton" class="btn-save"  onclick="saveAddress()"> Save Address </button>   
-        </form> 
-    </div> 
-    </div> 
- 
-        <!-- Search Bar -->
-         <div class="search-bar"> 
-            <select name="all" id='all' class="all-button"> 
-                <option value="All">All</option> 
-                <option value="Furniture">Furniture</option> 
-                <option value="Clothing">Clothing</option> 
-                <option value="Car">Car</option> 
-                <option value="Books">Books</option> 
-                <option value="Toys">Toys</option> 
-            </select> 
-            <input type="text" placeholder="Search Tobiesell"> 
-            <button type="submit" class="btn btn-default btn-sm">
-                <span class="glyphicon glyphicon-search"></span>
-            </button> 
-         </div> 
-        <button onclick="location.href='{% url 'register' %}'"> Sign up </button> 
-        <button onlcick="location.href='{% url 'login' %}'"> Login </button>
-
-        <!-- Language Selector -->
-        <div class="language-container">
-                <select name="language" id="language">
-                    <option value="en"><img src={% static "images/hk.png" %} alt="Cantonese"> Cantonese </option>
-                    <option value="en">  English </option>
-                    <option value="es">Español</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                </select>
-        </div>
-    </div> 
-</div>  
+<nav class="navbar navbar-expand-custom navbar-mainbg">
+  <a class="navbar-brand navbar-logo" href="#">Tobielearn</a>
+  <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <div class="hori-selector">
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
+      <li class="nav-item">
+        <a href= "{% url "login" %}" class="nav-link"><i class="fas fa-tachometer-alt"></i>Signup/login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>About us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Goal</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <div class="nav_2_container">
         <div id='stars'></div>
@@ -204,7 +108,7 @@ Tobielearn Home Page
           Make a greater learning experience
         </span>
     </div> 
-</div> 
+  </div> 
 </div> 
 <div class="nav_3_container">
 <div class="browsing-container">
@@ -244,6 +148,39 @@ Tobielearn Home Page
 
 </div> 
 
+<!-- footer -->
+ <div class="footer-clean"> 
+  <footer class="footer-position"> 
+    <div class="container"> 
+      <div>
+        <div class="col-sm-4 
+        col-md-3 item"> 
+          <h3> Services</h3> 
+          <ul> 
+            <li><a href="#">leran-page</a></li> 
+          </ul> 
+        </div> 
+      <div class="col-sm-4 col-md-3 item">
+        <h3> About</h3> 
+        <ul>
+          <li><a href="#">About us</a></li> 
+        </ul> 
+      </div> 
+      <div class="col-sm-4 col-md-3 item"> 
+        <h3>Support</h3> 
+        <ul> 
+          <li><a href="#">support</a></li> 
+        </ul> 
+      </div> 
+       <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                        <p class="copyright">Company Name © 2018</p>
+       </div>
+      </div> 
+    </div> 
+  </footer> 
+</div> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 
 
 </header> 
