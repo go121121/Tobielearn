@@ -1,4 +1,5 @@
 .nav_3_container{ 
+    overflow:hidden; 
     display:flex; 
 }
 .card{ 
@@ -37,34 +38,12 @@
 
 }
 /* animation of browsing effect */
-*, 
-*:before, 
-*:after{ 
-    box-sizing:border-box; 
-    position:relative;   
-}
+p
 body{ 
     background-color:black; 
     color:#fff; 
 }
 
-
-main {
-  height: 50px;  
-  border: solid 1px #222;
-  padding: 2rem;
-  max-width: 100%;
-  width: 960px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
-  scroll-behavior:smooth;
-
-  > * {
-    grid-column: 1 / -1;
-  }
-}
 
 .word-effect{ 
     line-height:1.8; 
@@ -103,7 +82,7 @@ section{
 .callout > p {
   color: white;
 }
-.browsing-container {
+.browsing-container{
   perspective: 1200px;
   transform-style: preserve-3d;
   -webkit-animation: cinematic-camera 11s cubic-bezier(0.6, 0, 0.4, 1) both infinite;
@@ -145,9 +124,22 @@ section{
     opacity: 1;
   }
 }
+main {
+  background-color:black; 
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  scroll-behavior:smooth;
+
+  > * {
+    grid-column: 1 / -1;
+  }
+}
 .browsing-container:after {
   content: "";
-  position: absolute;
+  position:absolute;
   top: 0;
   left: 0;
   width: 100%;

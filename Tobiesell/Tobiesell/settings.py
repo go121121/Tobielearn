@@ -27,7 +27,7 @@ MESSAGE_STORAGE='django.contrib.messages.storage.session.SessionStorage'
 SECRET_KEY = 'django-insecure-#8r61pj6%7#a7fw2(hex)1zopeumq0%-xb2q4ta%%v7$l@teqv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -134,6 +134,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS=[ 
                   BASE_DIR / "global_static_files"
                   ]
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

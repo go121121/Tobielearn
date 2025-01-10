@@ -1,82 +1,61 @@
-function toggleAddressPopup() {
-  const popup = document.getElementById("addressPopup");
-  if (popup.style.display === "none" || popup.style.display === "") {
-    popup.style.display = "block";
-  } else {
-    popup.style.display = "none";
-  }
-}
-
-
-function saveAddress(event) {
-  event.preventDefault(); // Prevent default form submission behavior
-  const address1 = document.getElementById("address1").value;
-  const address2 = document.getElementById("address2").value;
-  const state = document.getElementById("state").value;
-  const postal = document.getElementById("postal").value;
-  const saveButton = document.getElementById("saveButton");
-
-
-  // Disable the save button to prevent multiple submissions
-  saveButton.disabled = true;
-
-  // Basic validation
-  if (!address1 || !state || !postal) {
-    alert("Please fill in all required fields.");
-    saveButton.disabled = false; // Re-enable the button
-    return;
-  }
-
-  fetch("/save_address/", {
-    method: "POST",
-    headers: {
-      "X-CSRFToken": getCookie("csrftoken"),
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ address1, address2, state, postal }),
-  })
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("Failed to save address");
-      }
-    })
-    .then((data) => {
-      if (data.success) {
-        updateAddressDisplay(address1, address2, state, postal);
-        toggleAddressPopup();
-        alert(data.message); // Optional success alert
-      }
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      alert("An error occurred while saving the address.");
-    })
-    .finally(() => {
-      saveButton.disabled = false; // Re-enable the button
+// ---------Responsive-navbar-active-animation-----------
+function test() {
+  var tabsNewAnim = $("#navbarSupportedContent");
+  var selectorNewAnim = $("#navbarSupportedContent").find("li").length;
+  var activeItemNewAnim = tabsNewAnim.find(".active");
+  var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+  var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+  var itemPosNewAnimTop = activeItemNewAnim.position();
+  var itemPosNewAnimLeft = activeItemNewAnim.position();
+  $(".hori-selector").css({
+    top: itemPosNewAnimTop.top + "px",
+    left: itemPosNewAnimLeft.left + "px",
+    height: activeWidthNewAnimHeight + "px",
+    width: activeWidthNewAnimWidth + "px",
+  });
+  $("#navbarSupportedContent").on("click", "li", function (e) {
+    $("#navbarSupportedContent ul li").removeClass("active");
+    $(this).addClass("active");
+    var activeWidthNewAnimHeight = $(this).innerHeight();
+    var activeWidthNewAnimWidth = $(this).innerWidth();
+    var itemPosNewAnimTop = $(this).position();
+    var itemPosNewAnimLeft = $(this).position();
+    $(".hori-selector").css({
+      top: itemPosNewAnimTop.top + "px",
+      left: itemPosNewAnimLeft.left + "px",
+      height: activeWidthNewAnimHeight + "px",
+      width: activeWidthNewAnimWidth + "px",
     });
+  });
 }
+$(document).ready(function () {
+  setTimeout(function () {
+    test();
+  });
+});
+$(window).on("resize", function () {
+  setTimeout(function () {
+    test();
+  }, 500);
+});
+$(".navbar-toggler").click(function () {
+  $(".navbar-collapse").slideToggle(300);
+  setTimeout(function () {
+    test();
+  });
+});
 
-// Function to dynamically update the displayed address
-function updateAddressDisplay(address1, address2, state, postal) {
-  document.querySelector(".address strong").textContent = `${address1}, ${
-    address2 ? address2 + ", " : ""
-  }${state}, ${postal}`;
-}
+// --------------add active class-on another-page move----------
+jQuery(document).ready(function ($) {
+  // Get current path and find target link
+  var path = window.location.pathname.split("/").pop();
 
-// Function to get the CSRF token from cookies
-function getCookie(name) {
-  let cookieValue = null;
-  if (document.cookie && document.cookie !== "") {
-    const cookies = document.cookie.split(";");
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i].trim();
-      if (cookie.startsWith(name + "=")) {
-        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-        break;
-      }
-    }
+  // Account for home page with empty path
+  if (path == "") {
+    path = "home.html";
   }
-  return cookieValue;
-}
+
+  var target = $('#navbarSupportedContent ul li a[href="' + path + '"]');
+  // Add active class to target link
+  target.parent().addClass("active");
+});
