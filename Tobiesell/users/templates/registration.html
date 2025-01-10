@@ -1,20 +1,48 @@
-{% extends "base.html"%}
+<!DOCTYPE html>
+
+<!--
+{% extends "base.html" %}
+
 {% load static %}
+
 {% block content %}
+-->
 
-<h2>Register</h2>
-<form method="POST">
-    {% csrf_token %}
-    <label for="username"> 
-        <div> Username:</div> 
-    </label> 
-        <input type="username" id="username" name="username" placeholder="username or email"> 
-    <label for="password"> 
-        <div> Password:</div> 
-    </label> 
-        <input type="password" id="password" name="password" placeholder="password"> 
-    <button type="submit">Register</button>
-</form>
+<link rel="stylesheet" href="style.css">
 
+<!-- Main Registration Container -->
+<div class="registration-container">
+    <!-- Title Section -->
+    <div class="registration-title">
+        <h1>Register  For Tobielearn</h1>
+    </div>
 
+    <!-- Form Section -->
+    <div class="registration-form">
+        <form method="POST">
+            <!--
+			{% csrf_token %}
+			-->
+			
+			<label for="name"> 
+                <div> Full Name:</div> 
+            </label> 
+            <input type="name" id="name" name="name" placeholder="John Smith"> 
+			
+            <label for="email"> 
+                <div> Username:</div> 
+            </label> 
+            <input type="email" id="email" name="email" placeholder="info@tobielearn.com"> 
+
+            <label for="password"> 
+                <div> Password:</div> 
+            </label> 
+            <input type="password" id="password" name="password" placeholder="password"> 
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</div>
+<!--
 {% endblock %}
+-->
