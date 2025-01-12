@@ -1,0 +1,171 @@
+/* (c) TobieLearn William Ramsay All Rights Reserved*/
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling with background image */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("../static/images/background.jpg"); /* Background image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the image */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh;
+    margin: 0;
+    position: relative; /* Required for overlay positioning */
+}
+
+/* Overlay styling */
+body::before {
+    content: ''; /* Empty content for the overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* White with 50% opacity */
+    z-index: -1; /* Behind the content */
+}
+
+/* Main Registration Container */
+.registration-container {
+    text-align: center; /* Center the content horizontally */
+    max-width: 500px; /* Limit overall width of the container */
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* White background with opacity */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow around the container */
+}
+
+/* Title Section */
+.registration-title {
+    margin-bottom: 20px; /* Space below the title */
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #4D4D4D;
+    font-weight: bold;
+}
+
+/* Form Section */
+.registration-form {
+    margin-top: 20px; /* Space between title and form */
+}
+
+/* Form Styling */
+form {
+    background-color: #fff; /* White background for the form */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for form */
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left; /* Left-align text inside the form */
+}
+
+/* Label Styling */
+label {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 8px; /* Adjusted space for labels */
+    display: block;
+}
+
+/* Input Fields (email, name, and password) */
+input[type="email"], input[type="name"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus state for input fields */
+input[type="email"]:focus, input[type="name"]:focus, input[type="password"]:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    outline: none;
+}
+
+/* Button Styling with Border */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF; /* Blue background for button */
+    border: 2px solid #007BFF; /* Blue border */
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover and Focus Effects */
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3; /* Darker blue border on hover */
+}
+
+button[type="submit"]:focus {
+    outline: none;
+    border-color: #004085; /* Even darker blue border on focus */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .registration-container {
+        padding: 15px; /* Adjust padding for smaller screens */
+        width: 90%; /* Allow form to take up 90% of the width */
+    }
+
+    h1 {
+        font-size: 2em; /* Adjust title size for mobile */
+    }
+
+    form {
+        padding: 20px; /* Less padding on smaller screens */
+    }
+
+    input[type="email"], input[type="name"], input[type="password"], button[type="submit"] {
+        font-size: 1em; /* Adjust input and button text size */
+    }
+
+    label {
+        font-size: 1em; /* Adjust label font size */
+    }
+}
+
+/* Very Small Devices (e.g., small phones) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em; /* Make title smaller on very small devices */
+    }
+
+    .registration-container {
+        width: 95%; /* Make form container even more responsive */
+        padding: 20px; /* Increase padding for better spacing */
+    }
+
+    form {
+        padding: 25px; /* Increase padding inside form */
+    }
+
+    input[type="email"], input[type="text"], input[type="password"], button[type="submit"] {
+        font-size: 1.1em; /* Increase text size for better readability */
+        padding: 12px; /* Increase padding inside inputs */
+    }
+
+    button[type="submit"] {
+        font-size: 1.2em; /* Increase button text size */
+    }
+}
+

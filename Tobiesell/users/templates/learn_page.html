@@ -8,22 +8,26 @@ Tobielearn main  Page
 {% block content %}
 <!-- link to learn.css-->
 <link rel="stylesheet" href="{% static 'learn.css'%}"> 
+<!-- link to general-seach.css-->
+<link rel="stylesheet" href="{% static 'general-search.css'%}"> 
+<!-- boostrap-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- my own js file -->
 <script src="{% static 'learn.js' %}"></script> 
 
-<div class="hamburger">
-    <span class="line"></spin> 
-    <span class="line"></spin> 
-    <span class="line"></spin> 
-
-    <div class="mainbar">
+<!-- boostrap/ Jquery js file-->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
-    </div>
 
-</div>
 <section class="app section-sidebar">
-  <aside class="sidebar">
+
+    <!-- menu Button-->
+  <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+  <aside class="sidebar hidden">
+    <!-- close button -->
+    <button id="close-sidebar" class="close-sidebar">&times;</button>
     <header>
       Menu
     </header>
@@ -76,5 +80,455 @@ Tobielearn main  Page
     </nav>
   </aside>
 </section>
+<div class="container">
+    <div class="search-position">
+        <div class="row">
+        <div class="col-lg-12 card-margin">
+            <div class="card search-form">
+                <div class="card-body p-0">
+                    <form id="search-form">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row no-gutters">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        <select class="form-control" id="exampleFormControlSelect1"> 
+                                            <option>School</option> 
+                                            <option>Person</option> 
+                                            <option>Class</option> 
+                                        </select> 
+                                    </div>
+
+                                    <div class="col-lg-8 col-md-6 col-sm-12 p-0">
+
+                                    <input type="text" placeholder="Search..." class="form-control" id="search" name="search">
+
+                                    </div>
+
+                                    <div class="col-lg-1 col-md-3 col-sm-12 p-0"> 
+                                        <button type="submit" class="btn btn-base">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                        </button>
+                                    </div> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </form>
+            </div>
+        </div>
+    </div> 
+</div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card card-margin card-position">
+            <div class="card-body">
+                <div class="row search-body">
+                    <div class="col-lg-12">
+                        <div class="search-result">
+                            <div class="result-header">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class='records'>Showing:<b>1-20</b> of <b>200</b> result</div> 
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="result-sorting">
+                                            <span> Sort By:</span> 
+                                             <div class="name-position name-size">
+                                                <select class="form-control border-0" id="exampleOption">
+                                                        <option value="1">Relevance</option>
+                                                        <option value="2">Names (A-Z)</option>
+                                                        <option value="3">Names (Z-A)</option>
+                                            </select>
+                                             </div> 
+                                        </div>
+                                        <div class="result-views icon-position">
+                                            <button type="button" class="btn btn-soft-base btn-icon">
+                                                <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="24"
+                                                height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                class="feather feather-list"
+                                                >
+                                                <line x1="8" y1="6" x2="21" y2="6"></line>
+                                                            <line x1="8" y1="12" x2="21" y2="12"></line>
+                                                            <line x1="8" y1="18" x2="21" y2="18"></line>
+                                                            <line x1="3" y1="6" x2="3" y2="6"></line>
+                                                            <line x1="3" y1="12" x2="3" y2="12"></line>
+                                                            <line x1="3" y1="18" x2="3" y2="18"></line>
+                                                </svg>
+                                            </button>
+
+                                            <button type="button" class="btn btn-soft-base btn-icon">
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="24"
+                                                            height="24"
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            stroke-width="2"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            class="feather feather-grid"
+                                                        >
+                                                            <rect x="3" y="3" width="7" height="7"></rect>
+                                                            <rect x="14" y="3" width="7" height="7"></rect>
+                                                            <rect x="14" y="14" width="7" height="7"></rect>
+                                                            <rect x="3" y="14" width="7" height="7"></rect>
+                                                        </svg>
+                                                 </button>
+                                        </div>
+                                    </div> 
+                                </div> 
+                            </div>
+                        </div> 
+    <!-- upload button -->
+    <div class="dropdown">
+    <button>+ Create</button>
+    <div class="dropdown-content">
+      <a href="#">Upload Video </a>
+      <a href="#">Upload Notebook</a>
+      <a href="#">Create Post</a>
+    </div> 
+<!-- Person dropdown  menu -->
+  <div class="person-position">
+    <button class="image-button" onclick="toggleDropdown()"></button>
+    <div class="position">
+        <div class="person-menu" id="person-menu">
+    <a href="#">Switch Account</a>
+    <a href="#">Sign out </a>
+    <a href="#">settings</a>
+</div>
+  </div> 
+
+</div> 
+    
+
+
+    <!--      1st person in our team >>>> Tony Leung -->
+                        <div class="result-body">
+                            <div class="table-responsive">
+                                <table class="table widget-26">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="widget-26-job-emp-img">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="Tony"/> 
+                                                </div>
+                                            </td> 
+
+                                            <td>
+                                                <div class="widget-26-job-title">
+                                                    <a href="#">Sierra Canyon High School</a> 
+                                                    <p class="m-0"><a href="#" class="employer-name">Tony Leung</a><span class="text-muted time">18 yrs old</span></p> 
+                                                    
+                                                </div>
+                                            </td>
+
+                                            <td> 
+                                                <div class="widget-26-job-info">
+                                                    <p class="type m-0">Los Angles</p> 
+                                                    <p class="text-muted m-0"> in<span class="location">California, US</span></p> 
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="widget-26-job-salary">chess,tennis</div>
+                                            </td>
+                                            
+                                            <td>
+                                                <div class="widget-26-job-category bg-soft-base">
+                                                    <i class="indicator bg-danger"></i>
+                                                    <span>CEO,softwere engineer</span> 
+                                                </div> 
+                                            </td> 
+
+                                            <td>
+                                                <div class="widget-26-job-starred">
+                                                    <a href="#">
+                                                        <svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    width="24"
+                                                                    height="24"
+                                                                    viewBox="0 0 24 24"
+                                                                    fill="none"
+                                                                    stroke="currentColor"
+                                                                    stroke-width="2"
+                                                                    stroke-linecap="round"
+                                                                    stroke-linejoin="round"
+                                                                    class="feather feather-star"
+                                                                >
+                                                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                                                </svg>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr> 
+
+    <!--      2nd  person in our team >>>> Jonathan Wallace -->
+                                        <tr>
+                                            <td>
+                                                <div class="widget-26-job-emp-img">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="Jonathan"/> 
+                                                </div>
+                                            </td> 
+
+                                            <td>
+                                                <div class="widget-26-job-title">
+                                                    <a href="#">university of pennsylvania</a> 
+                                                    <p class="m-0"><a href="#" class="employer-name">Jonathan Wallace</a><span class="text-muted time">19 yrs old</span></p> 
+                                                    
+                                                </div>
+                                            </td>
+
+                                            <td> 
+                                                <div class="widget-26-job-info">
+                                                    <p class="type m-0">Philadelphia </p> 
+                                                    <p class="text-muted m-0"> in<span class="location">Pennsylvania, US</span></p> 
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="widget-26-job-salary">programming, baseball</div>
+                                            </td>
+                                            
+                                            <td>
+                                                <div class="widget-26-job-category bg-soft-base">
+                                                    <i class="indicator bg-base"></i>
+                                                    <span>softwere engineer</span> 
+                                                </div> 
+                                            </td> 
+
+                                            <td>
+                                                <div class="widget-26-job-starred">
+                                                    <a href="#">
+                                                        <svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    width="24"
+                                                                    height="24"
+                                                                    viewBox="0 0 24 24"
+                                                                    fill="none"
+                                                                    stroke="currentColor"
+                                                                    stroke-width="2"
+                                                                    stroke-linecap="round"
+                                                                    stroke-linejoin="round"
+                                                                    class="feather feather-star"
+                                                                >
+                                                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                                                </svg>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr> 
+
+<!--      3nd  person in our team >>>> Shin Masada-->
+
+                                <tr>
+                                            <td>
+                                                <div class="widget-26-job-emp-img">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Shin"/> 
+                                                </div>
+                                            </td> 
+
+                                            <td>
+                                                <div class="widget-26-job-title">
+                                                    <a href="#">Standord Online High School</a> 
+                                                    <p class="m-0"><a href="#" class="employer-name">Shin Masada</a><span class="text-muted time">17 yrs old</span></p> 
+                                                    
+                                                </div>
+                                            </td>
+
+                                            <td> 
+                                                <div class="widget-26-job-info">
+                                                    <p class="type m-0">Los Angles </p> 
+                                                    <p class="text-muted m-0"> in<span class="location">California, US</span></p> 
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="widget-26-job-salary">programming </div>
+                                            </td>
+                                            
+                                            <td>
+                                                <div class="widget-26-job-category bg-soft-base">
+                                                    <i class="indicator bg-base"></i>
+                                                    <span>softwere engineer</span> 
+                                                </div> 
+                                            </td> 
+
+                                            <td>
+                                                <div class="widget-26-job-starred">
+                                                    <a href="#">
+                                                        <svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    width="24"
+                                                                    height="24"
+                                                                    viewBox="0 0 24 24"
+                                                                    fill="none"
+                                                                    stroke="currentColor"
+                                                                    stroke-width="2"
+                                                                    stroke-linecap="round"
+                                                                    stroke-linejoin="round"
+                                                                    class="feather feather-star"
+                                                                >
+                                                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                                                </svg>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                </tr> 
+
+
+<!--      4th   person in our team >>>> Michael -->
+                                <tr>
+                                            <td>
+                                                <div class="widget-26-job-emp-img">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Michael"/> 
+                                                </div>
+                                            </td> 
+
+                                            <td>
+                                                <div class="widget-26-job-title">
+                                                    <a href="#">Sierra Canyon High School</a> 
+                                                    <p class="m-0"><a href="#" class="employer-name">Michael Xu</a><span class="text-muted time">18 yrs old</span></p> 
+                                                    
+                                                </div>
+                                            </td>
+
+                                            <td> 
+                                                <div class="widget-26-job-info">
+                                                    <p class="type m-0">Los Angles </p> 
+                                                    <p class="text-muted m-0"> in<span class="location">California, US</span></p> 
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="widget-26-job-salary">programming </div>
+                                            </td>
+                                            
+                                            <td>
+                                                <div class="widget-26-job-category bg-soft-base">
+                                                    <i class="indicator bg-info"></i>
+                                                    <span>Product Manager </span> 
+                                                </div> 
+                                            </td> 
+
+                                            <td>
+                                                <div class="widget-26-job-starred">
+                                                    <a href="#">
+                                                        <svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    width="24"
+                                                                    height="24"
+                                                                    viewBox="0 0 24 24"
+                                                                    fill="none"
+                                                                    stroke="currentColor"
+                                                                    stroke-width="2"
+                                                                    stroke-linecap="round"
+                                                                    stroke-linejoin="round"
+                                                                    class="feather feather-star"
+                                                                >
+                                                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                                                </svg>
+                                                    </a>
+                                                </div>
+                                        </td>
+                                </tr> 
+
+<!--      5th   person in our team >>>> William Ramsey -->
+
+
+                                 <tr>
+                                            <td>
+                                                <div class="widget-26-job-emp-img">
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="William"/> 
+                                                </div>
+                                            </td> 
+
+                                            <td>
+                                                <div class="widget-26-job-title">
+                                                    <a href="#">Caltech </a> 
+                                                    <p class="m-0"><a href="#" class="employer-name">William Ramsey</a><span class="text-muted time">19 yrs old</span></p> 
+                                                    
+                                                </div>
+                                            </td>
+
+                                            <td> 
+                                                <div class="widget-26-job-info">
+                                                    <p class="type m-0">Los Angles </p> 
+                                                    <p class="text-muted m-0"> in<span class="location">California, US</span></p> 
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="widget-26-job-salary">programming </div>
+                                            </td>
+                                            
+                                            <td>
+                                                <div class="widget-26-job-category bg-soft-base">
+                                                    <i class="indicator bg-base"></i>
+                                                    <span>Softwere Engineer </span> 
+                                                </div> 
+                                            </td> 
+
+                                            <td>
+                                                <div class="widget-26-job-starred">
+                                                    <a href="#">
+                                                        <svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    width="24"
+                                                                    height="24"
+                                                                    viewBox="0 0 24 24"
+                                                                    fill="none"
+                                                                    stroke="currentColor"
+                                                                    stroke-width="2"
+                                                                    stroke-linecap="round"
+                                                                    stroke-linejoin="round"
+                                                                    class="feather feather-star"
+                                                                >
+                                                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                                                </svg>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr> 
+                                    </tbody>
+                                </table> 
+                            </div> 
+                        </div> 
+                    </div>
+                </div>
+            </div> 
+            <nav class="d-flex justify-content-center">
+                        <ul class="pagination pagination-base pagination-boxed pagination-square mb-0">
+                            <li class="page-item">
+                                <a class="page-link no-border" href="#">
+                                    <span aria-hidden="true">«</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link no-border" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link no-border" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link no-border" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link no-border" href="#">4</a></li>
+                            <li class="page-item">
+                                <a class="page-link no-border" href="#">
+                                    <span aria-hidden="true">»</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div> 
+           </div> 
+      </div> 
+     </div> 
+</div> 
 
 {% endblock%}

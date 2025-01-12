@@ -10,7 +10,7 @@
 /* Body styling with background image */
 body {
     font-family: Arial, sans-serif;
-    background-image: url('background.jpg'); /* Background image */
+    background-image: url("../static/images/background.jpg"); /* Background image */
     background-size: cover; /* Cover the entire background */
     background-position: center; /* Center the image */
     display: flex;

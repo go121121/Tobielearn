@@ -1,15 +1,19 @@
 <!DOCTYPE html>
+
+
 <!-- (c) TobieLearn William Ramsay All Rights Reserved -->
 
-<!--
 {% extends "base.html" %}
 
 {% load static %}
 
-{% block content %}
--->
+{% block title %}
+Tobielearn registration page 
+{% endblock%}
 
-<link rel="stylesheet" href="style.css">
+{% block content %}
+<!-- link page -->
+<link rel="stylesheet" href="{% static 'style.css'%}"> 
 
 <!-- Main Registration Container -->
 <div class="registration-container">
@@ -18,12 +22,10 @@
         <h1>Register  For Tobielearn</h1>
     </div>
 
-    <!-- Form Section -->
+    <!-- Form Section --> 
     <div class="registration-form">
         <form method="POST">
-            <!--
 			{% csrf_token %}
-			-->
 			
 			<label for="name"> 
                 <div> Full Name:</div> 
@@ -44,6 +46,4 @@
         </form>
     </div>
 </div>
-<!--
 {% endblock %}
--->
