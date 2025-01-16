@@ -1,48 +1,43 @@
-{% extends "base.html" %}
-{% load static  %}
-{% block title %}
-   Tobiesell login page 
-{% endblock %}
-{% block content %}
-<link rel="stylesheet" href="{% static 'login.css' %}">
+<link rel="stylesheet" href="..\static\login.css">
 <body>
     <h1> Tobielearn</h1> 
-       <div class="container"> 
-        <div> 
+    <div class="left"> 
+       <div class="mcontainer"> 
+        <div class="signin"> 
 
               <p class="design"> Start your journey</p> 
               <h2> Sign in to Tobielearn </h2> 
                <form  method="POST"> 
-                 {% csrf_token %}
                 <div class="username_design"> 
                     <label for="username"> 
                     <div> Username:</div> 
                     </label> 
-            <input type="username" id="username" name="username" placeholder="username or email"> 
+            <input type="username" id="username" name="username" placeholder="Username or Email"> 
                 </div> 
 
                 <div class="password_design"> 
 
                     <label for="password"> 
-                        <div>  Password:  </div> 
+                        <div>  Password:</div> 
                   </label> 
 
-            <input type="password" id="password" name="password" placeholder="password">
+            <input type="password" id="password" name="password" placeholder="Password">
                 </div> 
     
 
             <div> 
-                <button type="submit" onclick="solve">
-                    log in 
+                <button type="submit" onclick="solve" class="login">
+                    Log in 
                 </button>
             </div> 
 
+            <div class="or">
+                <span>
+                    or
+                </span>
+            </div>
 
-            <div> 
-                <hr class="hr-text before after " data-content=" Or sign in with " />
-            </div> 
-
-            <div> 
+            <div class="other"> 
                 <button type="button" class="login-with-google-btn" >
                        Google 
                 </button>
@@ -54,14 +49,14 @@
         </div> 
 
     </form> 
-        <p> Forget your password ?
-        <p> Don't have an account ?
-            <p>
-                <a href="{% url "register" %}" style="text-decoration: none; color: blue; padding:3%; cursor:pointer;">Sign up for an account </a>
-            </p>
+        <p>  
+            <a href="{% url "register" %}" style="text-decoration: none; color: blue; padding:3%; cursor:pointer;">Forgot your password?</a>
+        </p>
 
+        <p> 
+            &nbsp;&nbsp;Don't have an account?
+            <a href="{% url "register" %}" style="text-decoration: none; color: blue; padding:3%; cursor:pointer;">Sign up</a>
         </p>
    </div> 
 
     </body>
-{% endblock %}
